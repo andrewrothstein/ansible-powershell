@@ -1,0 +1,6 @@
+---
+powershell_arch: alpine-x64
+powershell_os_pkgs:
+  - libstdc++
+  - libintl
+  - icu-libs

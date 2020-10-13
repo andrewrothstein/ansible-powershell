@@ -1,0 +1,4 @@
+---
+powershell_os_pkgs:
+  - openssl-libs
+  - libicu

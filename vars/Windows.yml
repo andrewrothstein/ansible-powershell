@@ -1,0 +1,5 @@
+---
+powershell_os: win
+powershell_arch: x64
+powershell_archive_type: zip
+powershell_dotexe: .exe

@@ -1,0 +1,62 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: install os pkg dependencies
+  become: yes
+  become_user: root
+  package:
+    name: '{{ powershell_os_pkgs | default([]) }}'
+    state: present
+- name: check for {{ powershell_name }} install in {{ powershell_install_dir }}...
+  become: yes
+  stat:
+    path: '{{ powershell_install_dir }}'
+  changed_when: False
+  register: powershell_binary
+- when: not powershell_binary.stat.exists
+  block:
+    - name: download {{ powershell_url }} to {{ powershell_tmp_archive }}
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ powershell_url }}'
+        dest: '{{ powershell_tmp_archive }}'
+        mode: 0644
+        checksum: '{{ powershell_checksum }}'
+    - name: mkdir {{ powershell_install_dir }}
+      become: yes
+      become_user: root
+      file:
+        path: '{{ powershell_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive {{ powershell_tmp_archive }} into {{ powershell_install_dir }}...
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: '{{ powershell_tmp_archive }}'
+        dest: '{{ powershell_install_dir }}'
+        creates: '{{ powershell_install_exe }}'
+  always:
+    - name: remove {{ powershell_tmp_archive }}...
+      become: yes
+      become_user: root
+      file:
+        path: '{{ powershell_tmp_archive }}'
+        state: absent
+- name: link {{ powershell_install_link }} to {{ powershell_install_exe }}...
+  become: yes
+  become_user: root
+  file:
+    src: '{{ powershell_install_exe }}'
+    dest: '{{ powershell_install_link }}'
+    state: link

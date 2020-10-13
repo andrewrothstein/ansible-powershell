@@ -1,0 +1,9 @@
+---
+- hosts: all
+  roles:
+  - role: '{{ playbook_dir }}'
+  tasks:
+  - command: /usr/local/bin/pwsh -version
+    register: powershell_output
+  - debug:
+      msg: '{{ powershell_output.stdout }}'
