@@ -60,3 +60,4 @@
     src: '{{ powershell_install_exe }}'
     dest: '{{ powershell_install_link }}'
     state: link
+- include_tasks: configure.yml

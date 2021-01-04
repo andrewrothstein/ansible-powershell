@@ -3,9 +3,19 @@
 powershell_ver: 7.1.0
 powershell_os: linux
 powershell_arch: x64
-powershell_archive_type: tar.gz
 powershell_parent_install_dir: /usr/local
 powershell_mirror: https://github.com/PowerShell/PowerShell/releases/download
+
+# trust a bunch of powershell repositories
+#powershell_trust:
+#  - Name: PSGallery
+#    InstallationPolicy: Trusted
+
+# install a bunch of modules
+#powershell_install_modules:
+#  - Name: Az
+#    Scope: CurrentUser
+
 powershell_checksums:
   '7.0.3':
     # https://github.com/PowerShell/PowerShell/releases/download/v7.0.3/powershell-7.0.3-linux-alpine-x64.tar.gz

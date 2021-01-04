@@ -2,7 +2,7 @@
 # vars file for powershell
 powershell_platform: '{{ powershell_os }}-{{ powershell_arch }}'
 powershell_name: powershell-{{ powershell_ver }}-{{ powershell_platform }}
-powershell_archive: '{{ powershell_name }}.{{ powershell_archive_type }}'
+powershell_archive: '{{ powershell_name }}.{{ powershell_archive_type | default("tar.gz") }}'
 powershell_tmp_archive: /tmp/{{ powershell_archive }}
 powershell_url: '{{ powershell_mirror }}/v{{ powershell_ver }}/{{ powershell_archive }}'
 powershell_checksum: '{{ powershell_checksums[powershell_ver][powershell_platform] }}'

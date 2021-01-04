@@ -5,5 +5,16 @@
   tasks:
   - command: /usr/local/bin/pwsh -version
     register: powershell_output
-  - debug:
+  - name: pwsh --version
+    debug:
       msg: '{{ powershell_output.stdout }}'
+- hosts: all
+  vars:
+    powershell_trust:
+      - Name: PSGallery
+        InstallationPolicy: Trusted
+    powershell_install_modules:
+      - Name: Az
+        Scope: CurrentUser
+  roles:
+  - role: '{{ playbook_dir }}'
