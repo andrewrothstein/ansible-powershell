@@ -12,6 +12,7 @@ env:
 - OS=alpine_edge
 - OS=centos_7
 - OS=centos_8
+- OS=debian_bullseye
 - OS=debian_buster
 - OS=debian_stretch
 - OS=fedora_31
