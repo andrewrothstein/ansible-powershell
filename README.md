@@ -1,6 +1,6 @@
 andrewrothstein.powershell
 =========
-[![Build Status](https://travis-ci.org/andrewrothstein/ansible-powershell.svg?branch=master)](https://travis-ci.org/andrewrothstein/ansible-powershell)
+![Build Status](https://github.com/andrewrothstein/ansible-powershell/actions/workflows/build.yml/badge.svg)
 
 Installs [MSFT PowerShell](https://docs.microsoft.com/en-us/powershell/)
 
