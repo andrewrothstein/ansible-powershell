@@ -1,6 +1,6 @@
 ---
 # defaults file for powershell
-powershell_ver: 7.1.4
+powershell_ver: 7.1.5
 powershell_os: linux
 powershell_arch: x64
 powershell_parent_install_dir: /usr/local
@@ -83,3 +83,20 @@ powershell_checksums:
     win-arm64: sha256:345f4b16e5daa0c2c6d2cb0758098b39b2fdb26d5c8b181ff16424b6c37c529f
     # https://github.com/PowerShell/PowerShell/releases/download/v7.1.4/powershell-7.1.4-win-x64.zip
     win-x64: sha256:ec5792d74eae88601d20734c857212920135aa5899823dcaf1c0143daedd8108
+  '7.1.5':
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-linux-alpine-x64.tar.gz
+    linux-alpine-x64: sha256:7793aa7585a2e538fdb1afb16fb5b08dde7531e5baae1c22c93f0a903b55d151
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-linux-arm32.tar.gz
+    linux-arm32: sha256:f8bd71230d83ef75865ff4df08e6a13e31dd0c49a32880f52c334a4b6a1fd894
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-linux-arm64.tar.gz
+    linux-arm64: sha256:18eddd0711591fa1e504b21b1effd10da5813d9b38c4386da58025befdae2607
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-linux-x64.tar.gz
+    linux-x64: sha256:f378dc312cfc07dc96ce23dd55f31714211f0af4c32640e153ab5b43b467bf7c
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-osx-x64.tar.gz
+    osx-x64: sha256:0f55f67d48534671fd07017680fe55c48949a748009fef11b01585c47e6eb398
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-win-arm32.zip
+    win-arm32: sha256:a37a5e97d693dac8554b66859d1ab2c4acc8334898bdff14e1f3153924484b74
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-win-arm64.zip
+    win-arm64: sha256:e47fccafe2a53aff2568e536477d93ce4ed7aee30977b6bf4f7fc38d4a854f14
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-win-x64.zip
+    win-x64: sha256:6cff673d859719a6588e5ae9d2b93f940a4fcff9a37e50c9c0f8286678d1ecad

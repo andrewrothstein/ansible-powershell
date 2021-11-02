@@ -1,14 +1,5 @@
 ---
 - hosts: all
-  roles:
-  - role: '{{ playbook_dir }}'
-  tasks:
-  - command: /usr/local/bin/pwsh -version
-    register: powershell_output
-  - name: pwsh --version
-    debug:
-      msg: '{{ powershell_output.stdout }}'
-- hosts: all
   vars:
     powershell_trust:
       - Name: PSGallery
@@ -18,3 +9,12 @@
         Scope: CurrentUser
   roles:
   - role: '{{ playbook_dir }}'
+- hosts: all
+  roles:
+  - role: '{{ playbook_dir }}'
+  tasks:
+  - command: /usr/local/bin/pwsh -version
+    register: powershell_output
+  - name: pwsh --version
+    debug:
+      msg: '{{ powershell_output.stdout }}'
