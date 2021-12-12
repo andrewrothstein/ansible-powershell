@@ -1,6 +1,6 @@
 ---
 # defaults file for powershell
-powershell_ver: 7.1.5
+powershell_ver: 7.2.0
 powershell_os: linux
 powershell_arch: x64
 powershell_parent_install_dir: /usr/local
@@ -100,3 +100,20 @@ powershell_checksums:
     win-arm64: sha256:e47fccafe2a53aff2568e536477d93ce4ed7aee30977b6bf4f7fc38d4a854f14
     # https://github.com/PowerShell/PowerShell/releases/download/v7.1.5/powershell-7.1.5-win-x64.zip
     win-x64: sha256:6cff673d859719a6588e5ae9d2b93f940a4fcff9a37e50c9c0f8286678d1ecad
+  '7.2.0':
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-linux-alpine-x64.tar.gz
+    linux-alpine-x64: sha256:dccf213728b6d539785cbcc9ad9bc0971d82c7e8cf010e8f949e3dd17fc4c596
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-linux-arm32.tar.gz
+    linux-arm32: sha256:bb1e2ca5ff230721ed3d2579714a7cfe12ea27b7b27b22ae222b3515d9038b8c
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-linux-arm64.tar.gz
+    linux-arm64: sha256:19e9aa2a308a68e6cf90ad11eba86948ef031850e00b0d0f9e26ac9d59e46a24
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-linux-x64.tar.gz
+    linux-x64: sha256:15b67d0571d9891a10e541a1462c906084ab148614dd83c6bbddf90046a815a8
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-osx-x64.tar.gz
+    osx-x64: sha256:b1864c204c7861ff8416446335fa002c5e48d2d50292b6e221e05c946aa8b9ae
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-win-arm32.zip
+    win-arm32: sha256:5740e5bad2e2284af336dd09557fa752902d1c5cf991f5f909cad163cc0ebb8a
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-win-arm64.zip
+    win-arm64: sha256:9e46eef382b5c36e25bc64d8275183a1a58ec6630d02b6f1636900f11d8d0a54
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.2.0/powershell-7.2.0-win-x64.zip
+    win-x64: sha256:0d38173c440cfe5fc123e82003fa5c68ced0aa1769619658364425a110f2016d
