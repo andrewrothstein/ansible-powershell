@@ -10,21 +10,21 @@
       paths:
         - '{{ role_path }}/vars'
 - name: install os pkg dependencies
-  become: yes
+  become: true
   become_user: root
   package:
     name: '{{ powershell_os_pkgs | default([]) }}'
     state: present
 - name: check for {{ powershell_name }} install in {{ powershell_install_dir }}...
-  become: yes
+  become: true
   stat:
     path: '{{ powershell_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: powershell_binary
 - when: not powershell_binary.stat.exists
   block:
     - name: download {{ powershell_url }} to {{ powershell_tmp_archive }}
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ powershell_url }}'
@@ -32,29 +32,29 @@
         mode: 0644
         checksum: '{{ powershell_checksum }}'
     - name: mkdir {{ powershell_install_dir }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ powershell_install_dir }}'
         state: directory
         mode: 0755
     - name: unarchive {{ powershell_tmp_archive }} into {{ powershell_install_dir }}...
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ powershell_tmp_archive }}'
         dest: '{{ powershell_install_dir }}'
         creates: '{{ powershell_install_exe }}'
   always:
     - name: remove {{ powershell_tmp_archive }}...
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ powershell_tmp_archive }}'
         state: absent
 - name: link {{ powershell_install_link }} to {{ powershell_install_exe }}...
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ powershell_install_exe }}'
