@@ -18,7 +18,7 @@ dl() {
 
     if [ ! -e $lfile ];
     then
-        wget -q -O $lfile $url
+        curl -sSLf -o $lfile $url
     fi
     printf "    # %s\n" $url
     printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
@@ -40,4 +40,4 @@ dl_ver() {
 
 }
 
-dl_ver ${1:-7.2.1}
+dl_ver ${1:-7.2.3}
