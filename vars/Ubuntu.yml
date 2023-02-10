@@ -1,25 +1,24 @@
 ---
 powershell_libcurl_ver:
-  focal: 4
-  bionic: 4
   xenial: 3
 powershell_libicu_ver:
-  focal: 66
   bionic: 60
   xenial: 55
+  jammy: 70
 powershell_libssl_ver:
-  focal: '1.1'
-  bionic: '1.1'
   xenial: '1.0.0'
+  jammy: '3'
+powershell_libttngust_ver:
+  jammy: 1
 powershell_os_pkgs:
   - libc6
   - libgcc1
   - libgssapi-krb5-2
-  - liblttng-ust0
+  - liblttng-ust{{ powershell_libttngust_ver[ansible_distribution_release] | default(0) }}
   - libstdc++6
-  - libcurl{{ powershell_libcurl_ver[ansible_distribution_release] }}
+  - libcurl{{ powershell_libcurl_ver[ansible_distribution_release] | default(4) }}
   - libunwind8
   - libuuid1
   - zlib1g
-  - libssl{{ powershell_libssl_ver[ansible_distribution_release] }}
-  - libicu{{ powershell_libicu_ver[ansible_distribution_release] }}
+  - libssl{{ powershell_libssl_ver[ansible_distribution_release] | default(66) }}
+  - libicu{{ powershell_libicu_ver[ansible_distribution_release] | default("1.1") }}
