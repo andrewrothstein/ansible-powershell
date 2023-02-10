@@ -15,9 +15,9 @@ powershell_os_pkgs:
   - libgssapi-krb5-2
   - liblttng-ust0
   - libstdc++6
-  - libcurl{{ powershell_libcurl_ver[ansible_distribution_release] }}
+  - libcurl{{ powershell_libcurl_ver[ansible_distribution_release] | default("4") }}
   - libunwind8
   - libuuid1
   - zlib1g
   - libssl1.1
-  - libicu{{ powershell_libicu_ver[ansible_distribution_release] }}
+  - libicu{{ powershell_libicu_ver[ansible_distribution_release] | default("67") }}

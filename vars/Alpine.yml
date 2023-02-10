@@ -1,5 +1,5 @@
 ---
-powershell_arch: alpine-x64
+powershell_arch: alpine-{{ powershell_arch_map[ansible_architecture] }}
 powershell_os_pkgs:
   - libstdc++
   - libintl

@@ -1,5 +1,7 @@
 ---
 # vars file for powershell
+powershell_os: '{{ powershell_os_map[ansible_system] }}'
+powershell_arch: '{{ powershell_arch_map[ansible_architecture] }}'
 powershell_platform: '{{ powershell_os }}-{{ powershell_arch }}'
 powershell_name: powershell-{{ powershell_ver }}-{{ powershell_platform }}
 powershell_archive: '{{ powershell_name }}.{{ powershell_archive_type | default("tar.gz") }}'
