@@ -20,5 +20,5 @@ powershell_os_pkgs:
   - libunwind8
   - libuuid1
   - zlib1g
-  - libssl{{ powershell_libssl_ver[ansible_distribution_release] | default(66) }}
-  - libicu{{ powershell_libicu_ver[ansible_distribution_release] | default("1.1") }}
+  - libssl{{ powershell_libssl_ver[ansible_distribution_release] | default("1.1") }}
+  - libicu{{ powershell_libicu_ver[ansible_distribution_release] | default(66) }}
