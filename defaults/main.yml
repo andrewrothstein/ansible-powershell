@@ -1,6 +1,6 @@
 ---
 # defaults file for powershell
-powershell_ver: 7.3.6
+powershell_ver: 7.3.7
 powershell_os_map:
   Linux: linux
   Darwin: osx
@@ -259,3 +259,20 @@ powershell_checksums:
     win-arm64: sha256:20ba733f54f3141616ae290873081dc5684d92ab5ddba433bf68db74f7d47026
     # https://github.com/PowerShell/PowerShell/releases/download/v7.3.6/powershell-7.3.6-win-x64.zip
     win-x64: sha256:fcbd1699beaed9e42d8d335c60f17c746055c4f05d4d658d2f54b88f99bd01ba
+  '7.3.7':
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-linux-alpine-x64.tar.gz
+    linux-alpine-x64: sha256:5eeedf5f7da8e62f609d98bb4da0fbd6ddd0bb8e7265a4ac9810915eb94e7fd3
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-linux-arm32.tar.gz
+    linux-arm32: sha256:f95edb917661f91afbaa968d37ec3c166674f826017d680f954f047ca400b6da
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-linux-arm64.tar.gz
+    linux-arm64: sha256:19a02ede70f4c51aaa1342e6ed9e436ba61440688215ce711ee2580cb2b24867
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-linux-x64.tar.gz
+    linux-x64: sha256:18ab001fe03cf7f3357f1bf0e02e326fbf884dc7c3e98e0e89c6f52bc02cc302
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-osx-x64.tar.gz
+    osx-x64: sha256:fba732e0f2e9b77651eee8b71fdac08370b7f6456bc8fb6a1391caccca416b6e
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-win-arm32.zip
+    win-arm32: sha256:39942d24b839546ed6b073ace5048e50f1555c8c610b75173d0e2e8cc920ea5b
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-win-arm64.zip
+    win-arm64: sha256:047de9c873626a8833cb44833d6093305758853fdd28e77aa7d66d0ba78faceb
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-win-x64.zip
+    win-x64: sha256:1c2988794a454c01990bca872bb208590ec792189c115dbe0d71880ebcf760a6
