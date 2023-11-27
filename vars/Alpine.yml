@@ -1,5 +1,8 @@
 ---
-powershell_arch: alpine-{{ powershell_arch_map[ansible_architecture] }}
+powershell_arch: |-
+  {{- "musl" if powershell_ver >= "7.4" else "alpine" -}}
+  -
+  {{- powershell_arch_map[ansible_architecture] -}}
 powershell_os_pkgs:
   - libstdc++
   - libintl
