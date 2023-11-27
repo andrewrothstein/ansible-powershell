@@ -5,19 +5,26 @@ powershell_libcurl_ver:
   stretch: 3
 
 powershell_libicu_ver:
+  bookworm: 72
   buster: 63
   bullseye: 67
   stretch: 57
+
+powershell_liblttng_ust_ver:
+  bookworm: 1
+
+powershell_libssl_ver:
+  bullseye: 1.1
 
 powershell_os_pkgs:
   - libc6
   - libgcc1
   - libgssapi-krb5-2
-  - liblttng-ust0
+  - liblttng-ust{{ powershell_liblttng_ust_ver[ansible_distribution_release] | default("0") }}
   - libstdc++6
   - libcurl{{ powershell_libcurl_ver[ansible_distribution_release] | default("4") }}
   - libunwind8
   - libuuid1
   - zlib1g
-  - libssl1.1
+  - libssl{{ powershell_libssl_ver[ansible_distribution_release] | default("3") }}
   - libicu{{ powershell_libicu_ver[ansible_distribution_release] | default("67") }}

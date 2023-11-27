@@ -1,6 +1,6 @@
 ---
 # defaults file for powershell
-powershell_ver: 7.3.7
+powershell_ver: 7.4.0
 powershell_os_map:
   Linux: linux
   Darwin: osx
@@ -9,6 +9,7 @@ powershell_arch_map:
   aarch32: arm32
   aarch64: arm64
   x86_64: x64
+  x86_32: x86
 powershell_parent_install_dir: /usr/local
 powershell_mirror: https://github.com/PowerShell/PowerShell/releases/download
 
@@ -276,3 +277,21 @@ powershell_checksums:
     win-arm64: sha256:047de9c873626a8833cb44833d6093305758853fdd28e77aa7d66d0ba78faceb
     # https://github.com/PowerShell/PowerShell/releases/download/v7.3.7/powershell-7.3.7-win-x64.zip
     win-x64: sha256:1c2988794a454c01990bca872bb208590ec792189c115dbe0d71880ebcf760a6
+  # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/hashes.sha256
+  '7.4.0':
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-linux-musl-x64.tar.gz
+    linux-musl-x64: sha256:a7eafbe19f65226c20198874991edb5793738547e06cdeae6654b86f189b9fc1
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-linux-arm32.tar.gz
+    linux-arm32: sha256:6a5b31ef2a4976aa20e5e39a47acab0575f189c8d66895c0e341d6e2a6442681
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-linux-arm64.tar.gz
+    linux-arm64: sha256:13d317610ba133c002990c40622a886989368460451809861f378c25730989f4
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-linux-x64.tar.gz
+    linux-x64: sha256:aa82c3e9241503b52db1827e3fd7fc099da74f828ba032e9b726e50c72b4bee5
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/powershell-7.4.0-osx-x64.tar.gz
+    osx-x64: sha256:8b6bd0b4da7ac2053683ed298b396f8929ff5ca3b803065c736f53209e815c13
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-arm64.zip
+    win-arm64: sha256:a47801a3fbb7e9343c2803e775098c2361e0fb134fa4a3facb8d81a811fa9873
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x64.zip
+    win-x64: sha256:62151db1d98a8b56aeb249cc8a3ce17948f1c83b4062dac8d0c4302de71cbd75
+    # https://github.com/PowerShell/PowerShell/releases/download/v7.4.0/PowerShell-7.4.0-win-x86.zip
+    win-x86: sha256:bccc24e1f1dfc5d837111f3894d0cba9a14cf9891ebc6645c63a7a584e54bc0a
