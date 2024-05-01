@@ -1,11 +1,13 @@
 ---
-- become: true
+- name: Setting installation policies for PS repositories
+  become: true
   become_user: root
   with_items: '{{ powershell_trust | default([]) }}'
-  name: setting installation policies for PS repositories
-  command: '{{ powershell_install_exe }} -Command "Set-PSRepository -Name {{ item.Name }} -InstallationPolicy {{ item.InstallationPolicy }}"'
-- become: true
+  ansible.builtin.command: '{{ powershell_install_exe }} -Command "Set-PSRepository -Name {{ item.Name }} -InstallationPolicy {{ item.InstallationPolicy }}"'
+  changed_when: false
+- name: Installing PS modules
+  become: true
   become_user: root
   with_items: '{{ powershell_install_modules | default([]) }}'
-  name: installing PS modules
-  command: '{{ powershell_install_exe }} -Command "Install-Module {{ item.Name }} -Scope {{ item.Scope }}"'
+  ansible.builtin.command: '{{ powershell_install_exe }} -Command "Install-Module {{ item.Name }} -Scope {{ item.Scope }}"'
+  changed_when: false

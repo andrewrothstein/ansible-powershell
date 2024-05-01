@@ -1,8 +1,9 @@
 ---
-- include_role:
+- name: Installing andrewrothstein.unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
-  include_vars: '{{ item }}'
+- name: Resolve platform specific vars
+  ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
         - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
@@ -11,55 +12,57 @@
       skip: true
       paths:
         - '{{ role_path }}/vars'
-- name: install os pkg dependencies
+- name: Install os pkg dependencies
   become: true
   become_user: root
-  package:
+  ansible.builtin.package:
     name: '{{ powershell_os_pkgs | default([]) }}'
     state: present
-- name: check for {{ powershell_name }} install in {{ powershell_install_dir }}...
+- name: Check for {{ powershell_name }} install in {{ powershell_install_dir }}...
   become: true
-  stat:
+  ansible.builtin.stat:
     path: '{{ powershell_install_dir }}'
   changed_when: false
   register: powershell_binary
-- when: not powershell_binary.stat.exists
+- name: Downloading and installing pwsh
+  when: not powershell_binary.stat.exists
   block:
-    - name: download {{ powershell_url }} to {{ powershell_tmp_archive }}
+    - name: Download {{ powershell_url }} to {{ powershell_tmp_archive }}
       become: true
       become_user: root
-      get_url:
+      ansible.builtin.get_url:
         url: '{{ powershell_url }}'
         dest: '{{ powershell_tmp_archive }}'
-        mode: 0644
+        mode: '644'
         checksum: '{{ powershell_checksum }}'
-    - name: mkdir {{ powershell_install_dir }}
+    - name: Mkdir {{ powershell_install_dir }}
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ powershell_install_dir }}'
         state: directory
-        mode: 0755
-    - name: unarchive {{ powershell_tmp_archive }} into {{ powershell_install_dir }}...
+        mode: '755'
+    - name: Unarchive {{ powershell_tmp_archive }} into {{ powershell_install_dir }}...
       become: true
       become_user: root
-      unarchive:
+      ansible.builtin.unarchive:
         remote_src: true
         src: '{{ powershell_tmp_archive }}'
         dest: '{{ powershell_install_dir }}'
         creates: '{{ powershell_install_exe }}'
   always:
-    - name: remove {{ powershell_tmp_archive }}...
+    - name: Remove {{ powershell_tmp_archive }}...
       become: true
       become_user: root
-      file:
+      ansible.builtin.file:
         path: '{{ powershell_tmp_archive }}'
         state: absent
-- name: link {{ powershell_install_link }} to {{ powershell_install_exe }}...
+- name: Link {{ powershell_install_link }} to {{ powershell_install_exe }}...
   become: true
   become_user: root
-  file:
+  ansible.builtin.file:
     src: '{{ powershell_install_exe }}'
     dest: '{{ powershell_install_link }}'
     state: link
-- include_tasks: configure.yml
+- name: Configuring...
+  ansible.builtin.include_tasks: configure.yml

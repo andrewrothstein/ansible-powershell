@@ -51,4 +51,4 @@ dl_ver() {
     dl $ver $lhashes win x86 zip
 }
 
-dl_ver ${1:-7.4.0}
+dl_ver ${1:-7.4.2}

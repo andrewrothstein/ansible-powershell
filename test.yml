@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.powershell (trust, modules)
+  hosts: all
   vars:
     powershell_trust:
       - Name: PSGallery
@@ -9,12 +10,15 @@
         Scope: CurrentUser
   roles:
   - role: '{{ playbook_dir }}'
-- hosts: all
+- name: Testing andrewrothstein.powershell (default)
+  hosts: all
   roles:
-  - role: '{{ playbook_dir }}'
+    - role: '{{ playbook_dir }}'
   tasks:
-  - command: /usr/local/bin/pwsh -version
-    register: powershell_output
-  - name: pwsh --version
-    debug:
-      msg: '{{ powershell_output.stdout }}'
+    - name: Executing 'pwsh -version'
+      ansible.builtin.command: /usr/local/bin/pwsh -version
+      changed_when: false
+      register: powershell_output
+    - name: Output of 'pwsh -version'
+      ansible.builtin.debug:
+        msg: '{{ powershell_output.stdout }}'
