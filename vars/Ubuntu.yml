@@ -1,15 +1,19 @@
 ---
 powershell_libcurl_ver:
   xenial: 3
+  noble: 4
 powershell_libicu_ver:
   bionic: 60
   xenial: 55
   jammy: 70
+  noble: 74
 powershell_libssl_ver:
   xenial: '1.0.0'
   jammy: '3'
+  noble: '3t64'
 powershell_libttngust_ver:
   jammy: 1
+  noble: '1t64'
 powershell_os_pkgs:
   - libc6
   - libgcc1

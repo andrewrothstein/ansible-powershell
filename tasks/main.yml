@@ -1,7 +1,4 @@
 ---
-- name: Installing andrewrothstein.unarchivedeps
-  ansible.builtin.include_role:
-    name: andrewrothstein.unarchivedeps
 - name: Resolve platform specific vars
   ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
@@ -42,6 +39,9 @@
         path: '{{ powershell_install_dir }}'
         state: directory
         mode: '755'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
     - name: Unarchive {{ powershell_tmp_archive }} into {{ powershell_install_dir }}...
       become: true
       become_user: root
@@ -57,6 +57,12 @@
       ansible.builtin.file:
         path: '{{ powershell_tmp_archive }}'
         state: absent
+- name: Chmod 755 {{ powershell_install_exe }}
+  become: true
+  become_user: root
+  ansible.builtin.file:
+    path: '{{ powershell_install_exe }}'
+    mode: '755'
 - name: Link {{ powershell_install_link }} to {{ powershell_install_exe }}...
   become: true
   become_user: root
