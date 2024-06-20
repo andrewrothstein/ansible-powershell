@@ -9,7 +9,7 @@
       - Name: Az
         Scope: CurrentUser
   roles:
-  - role: '{{ playbook_dir }}'
+    - role: '{{ playbook_dir }}'
 - name: Testing andrewrothstein.powershell (default)
   hosts: all
   roles:
